@@ -12,7 +12,7 @@ from scipy.signal import get_window      # window generations
 
 class MFCC_Features(object):        
     
-    def find_next_pow_2(x):
+    def find_next_pow_2(self,x):
         if (x<0):
             return 0
         power =1
@@ -57,12 +57,12 @@ class MFCC_Features(object):
            high_range = 8000
         else:
             high_range =4000
-        self.frequency_range =np.array(low_range ,high_range)
+        self.frequency_range =[low_range ,high_range]
         
     
     def getMelFrequency(self,f_range):
         mel_result = np.zeros(len(f_range))
-        for freq in f_range:
+        for freq in range(0,len(f_range)):
             mel_result[freq] = 1125 * np.log(1 + f_range[freq] /700)
         return mel_result
 
